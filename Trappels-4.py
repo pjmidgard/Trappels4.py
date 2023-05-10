@@ -250,9 +250,9 @@ class encypthion_class:
 	                                        Calculust=INFO3[block:block+blocks]
 	                                        if len(Calculust)!=21:
 	                                        	
-	                                        	Circle+=Calculust
+	                                        	Circle+="1"+Calculust
 	                                        	block+=21
-	                                        if len(Calculust)==21:
+	                                        elif len(Calculust)==21:
 	                                        #print(Calculus)
 		                                        block+=21
 		                                        Calculus2=Calculust[0:21]
@@ -264,14 +264,16 @@ class encypthion_class:
 		                                        Calculus1=""
 		                                        Calculus6=""
 		                                        N1=0
-		                                        while Calculus3!=7:
+		                                        count_times=-1
+		                                        not_compress1=0
+		                                        while Calculus3!=0:
 		                                        	Calculus1=Calculust[block2:block2+3]
 		                                        	Calculus3=int(Calculus1,2)
 		                                        	Times_count3+=1
 		                                        	block2+=3
 		                                        	if block2==21:
-		                                        		not_compress=1
-		                                        		Calculus3=7
+		                                        		not_compress1=1
+		                                        		Calculus3=0
 		                                        if Times_count3==Calculus3:
 		                                        	N1=0
 		                                        else:
@@ -310,15 +312,20 @@ class encypthion_class:
 	                                       	                                       	                                        	
 		                                        if Times_count4>=Times_count3:
 		                                        		not_compress=1  
-		                                        if  not_compress==1 and N1>1:
-		                                         	  Circle+=Calculust
+		                                        
+		                                         	
 		                                         	  
-		                                        else:	                             		                                                                                               	
-		                                        		CS=bin(N1)[2:]
-		                                        		Circle+=Calculust[:Times_count4*3]+CS+Calculust[(Times_count4*3)+3:]+Calculust[:Times_countr*3]+"111"+Calculust[(Times_count3*3)+3:]
-		                                        		print(Calculust[:Times_count4*3]+"f"+CS+Calculust[(Times_count4*3)+3:]+Calculust[:Times_countr*3]+"g"+"111"+Calculust[(Times_countr*3)+3:])#CS                             		#print(Circle)
+		                                        if  Calculus3==0 and  not_compress1==0:                      		                                                                                               	
+		                                        		CS=format(Times_count3,'01b')
+		                                        	
+		                                        		Circle+=Calculust[:Times_count3*3]+CS+Calculust[(Times_count3*3)+3:]
+		                                        		#print(Calculust[:Times_count3*3]+"g"+CS+Calculust[(Times_count3*3)+3:])
+		                                        		#print(Times_count3)                   		#print(Circle)
 	                                        	
-	                                        
+		                                        else:
+		                                        	
+		                                        	Circle+="1"+Calculust
+		                                        	#print(Calculust)		                                       	                                        
 	                                        #print(Circle9)
 	                                        #print(Stop3)
                                                        
@@ -429,8 +436,8 @@ class encypthion_class:
                             
                                 
                                 Times55+=1
-                                print(Times55)
-                                if Times55==1:
+                                #print(Times55)
+                                if Times55==12:
 		                               
 		                                INFO11="1"+INFO11
 		                                
