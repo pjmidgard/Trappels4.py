@@ -308,12 +308,12 @@ class encypthion_class:
 		                                        		Calculus7=1                  	                                        	                      
 		                                        	N1=count_times
 	                                       	                                       	                                        	
-		                                    if Times_count4>=Times_count3:
+		                                        if Times_count4>=Times_count3:
 		                                        		not_compress=1  
-		                                    if  not_compress==1 and N1>1:
+		                                        if  not_compress==1 and N1>1:
 		                                         	  Circle+=Calculust
 		                                         	  
-		                                    else:	                             		                                                                                               	
+		                                        else:	                             		                                                                                               	
 		                                        		CS=bin(N1)[2:]
 		                                        		Circle+=Calculust[:Times_count4*3]+CS+Calculust[(Times_count4*3)+3:]+Calculust[:Times_countr*3]+"111"+Calculust[(Times_count3*3)+3:]
 		                                        		print(Calculust[:Times_count4*3]+"f"+CS+Calculust[(Times_count4*3)+3:]+Calculust[:Times_countr*3]+"g"+"111"+Calculust[(Times_countr*3)+3:])#CS                             		#print(Circle)
