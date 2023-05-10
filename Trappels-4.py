@@ -318,9 +318,12 @@ class encypthion_class:
 		                                        if  Calculus3==0 and  not_compress1==0:                      		                                                                                               	
 		                                        		CS=format(Times_count3,'01b')
 		                                        	
-		                                        		Circle+=Calculust[:Times_count3*3]+CS+Calculust[(Times_count3*3)+3:]
-		                                        		#print(Calculust[:Times_count3*3]+"g"+CS+Calculust[(Times_count3*3)+3:])
-		                                        		#print(Times_count3)                   		#print(Circle)
+
+		                                        		if Calculust[:1]!="0":
+		                                        		                  		
+		                                        		      Circle+="1"+Calculust
+		                                        		else:
+		                                        			Circle+Calculust[:Times_count3*3]+CS+Calculust[(Times_count3*3)+3:]        		#print(Circle)
 	                                        	
 		                                        else:
 		                                        	
