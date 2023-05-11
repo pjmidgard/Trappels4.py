@@ -418,14 +418,14 @@ class encypthion_class:
                             
                                 
                                 Times55+=1
-                                if len(INFO11)<=1700 or Times55==(2**24)-1:
+                                if len(INFO11)<=1700 or Times55==(2**48)-1:
                                 	Times56=1
                                 #print(Times55)
                                 if Times56==1:
                        
 		                               
 		                                
-		                                Save_T=format(Times55,'024b')
+		                                Save_T=format(Times55,'048b')
 		                                INFO11="1"+Save_T+INFO11
 		                                
 		                                
