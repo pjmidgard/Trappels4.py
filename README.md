@@ -2,5 +2,5 @@
 Trappels4.py
 
 Algorithm Zizag_RLE:
-left then right oppsite repite and two the same information of 4 bytes.
+left then right oppsite repite and two the same information of 4 bytes and compress it two times.
 
