@@ -244,91 +244,57 @@ class encypthion_class:
                                        
                                         Circle=""
                                         INFO3=INFO2
+                                        F=0
+                                        F1=0
+                                        Times4=0
+                                        stop=0
                                         while block<long:
                                         	
+                                            D=0
+                                            S1=""
+                                            if F==0:
+                                            	F=1
+                                            	Zigzag_rle=INFO3[block:block+24]
+                                            else:
+                                            	Zigzag_rle=INFO3[block+24:block+48]
+                                            	F=0
+                                            times_1=-4
+                                            times_2=-4
+                                            times_3=0
+                                            while times_1!=20:
+                                            	times_1+=4
+                                            	times_2=-4
+                                            	while times_2!=20:
+                                            		times_2+=4
+                                            		if Zigzag_rle[times_1:times_1+4]==Zigzag_rle[times_2:times_2+4] and times_1!=times_2:
+                                            			times_3=(times_2//4)-(times_1//4)
+                                            		
+                                            			if times_1<times_2 and times_3<8 and times_3>-1:
+                                            				S=format(times_3,'03b')
+                                            				
+                                            				#print(S)
+                                            				D=1
+                                            				if F1==0:
+                                            					F1=1
+                                            					S1=S+Zigzag_rle[:times_2]+Zigzag_rle[block+24:block+48]
+                                            				else:
+                                            				 	F1=0
+                                            				 	S1=S+Zigzag_rle[:times_2]+Zigzag_rle[block:block+24]
 
-	                                        Calculust=INFO3[block:block+blocks]
-	                                        if len(Calculust)!=21:
-	                                        	
-	                                        	Circle+="1"+Calculust
-	                                        	block+=21
-	                                        elif len(Calculust)==21:
-	                                        #print(Calculus)
-		                                        block+=21
-		                                        Calculus2=Calculust[0:21]
-		                                        Calculus3=-1
-		                                        block2=0
-		                                        not_compress=0
-		                                        Times_count3=-1
-		                                        Calculus4=-1
-		                                        Calculus1=""
-		                                        Calculus6=""
-		                                        N1=0
-		                                        count_times=-1
-		                                        not_compress1=0
-		                                        while Calculus3!=0:
-		                                        	Calculus1=Calculust[block2:block2+3]
-		                                        	Calculus3=int(Calculus1,2)
-		                                        	Times_count3+=1
-		                                        	block2+=3
-		                                        	if block2==21:
-		                                        		not_compress1=1
-		                                        		Calculus3=0
-		                                        if Times_count3==Calculus3:
-		                                        	N1=0
-		                                        else:
-		                                        	block2=0
-		                                        	count_times=-1
-		                                        	Times_countr=Times_count3
-		                                        	#print(Times_count3)	
-		                                      
-		                                        	while Times_count3!=Calculus4:
-		                                        		CalculusF=Calculust[Times_count3*3:(Times_count3*3)+3]
-		                                        		Calculus4=int(CalculusF,2)
-		                                        		#print(Calculus4)
-		                                        		Times_count3=Calculus4
-		                                        		Times_count3=Calculus4
-		                                        		block2+=3
-		                                        		count_times+=1
-		                                        		if block2==21:
-		                                        			Times_count3=Calculus4
-		                                        			not_compress=1
-		                                        Calculus7=0
-		                                        Times_count4=-1
-		                                        block2=0
-		                                        while Calculus7!=1:
-		                                        	Calculus1=Calculust[block2:block2+3]
-		                                        	Calculus12=int(Calculus1,2)
-		                                        	
-		                                        	if Calculus12==count_times:
-		                                        		Calculus7=1
-		                                        	
-		                                        	Times_count4+=1
-		                                        	block2+=3
-		                                        	if block2==21:
-		                                        		not_compress=1
-		                                        		Calculus7=1                  	                                        	                      
-		                                        	N1=count_times
-	                                       	                                       	                                        	
-		                                        if Times_count4>=Times_count3:
-		                                        		not_compress=1  
-		                                        
-		                                         	
-		                                         	  
-		                                        if  Calculus3==0 and  not_compress1==0:                      		                                                                                               	
-		                                        		CS=format(Times_count3,'01b')
-		                                        	
-
-		                                        		if Calculust[:1]!="0":
-		                                        		                  		
-		                                        		      Circle+="1"+Calculust
-		                                        		else:
-		                                        			Circle+Calculust[:Times_count3*3]+CS+Calculust[(Times_count3*3)+3:]        		#print(Circle)
-	                                        	
-		                                        else:
-		                                        	
-		                                        	Circle+="1"+Calculust
-		                                        	#print(Calculust)		                                       	                                        
+                                            		
+	                                        			
+	                                        		
+	                                      
+                                            if D==0 or stop==1:
+                                            	Circle+=INFO3[block:block+48]
+                                            	stop=1
+                                            elif D==1 and stop==0:
+                                            	stop=0
+                                            	Times4+=1
+                                            	Circle+=S1
+                                            D=0
+                                            block+=48                                     
+		                                        	#print(Zigzag_rle)		                                       	                                        
 	                                        #print(Circle9)
 	                                        #print(Stop3)
                                                        
@@ -404,10 +370,13 @@ class encypthion_class:
                                 
                             
                                       
-                                #print(len(INFO11))
+                                #print(len(INFO12))
                                 #print(len(INFO2))
 
                                 INFO11=INFO12
+                                
+                                Save_T=format(Times4,'032b')
+                                INFO11=Save_T+INFO11
                                 INFO2=INFO11
                                 
                                 #print(len(INFO2))
@@ -440,7 +409,7 @@ class encypthion_class:
                                 
                                 Times55+=1
                                 #print(Times55)
-                                if Times55==12:
+                                if Times55==1000:
 		                               
 		                                INFO11="1"+INFO11
 		                                
@@ -622,9 +591,9 @@ class encypthion_class:
 
                                     INFO2=INFO
                                     if countraz==1:                               
-	                                    Times_count=int(INFO2[:40],2)
+	                                    Times_count=12
 	                                    #print(Times_count)
-	                                    INFO2=INFO2[40:]
+	                                  
 	                                    while INFO2[0:1]!="1":
 	                                    
 		                                    if INFO2[0:1]=="0":
@@ -637,60 +606,196 @@ class encypthion_class:
 	                                    Time_count2=0
 	                                    #print(INFO3)
                                    
-                                lenf2=len(INFO2)  
-                              
-                               
+                                lenf2=len(INFO2)
 
-                                Count_add_block=0
-
-
+                                INFO11=""
+                                INFO12=""
+                                long21=len(INFO3)
+                                limit1=0
+                                INFO4="'"
+                                
+                                Times_of_times=0
+                                
+                                
 
                                 
+                                while limit1!=1:    
+                                
+                                    INFO4=INFO2
+                                    long_B=len(INFO4)
+                                    long=len(INFO4)
+                                    Times_of_times+=1
+                                    if Times_of_times==100:
+                                        limit1
+                                        
+                                    
+                                    
+                                        
+                                    
+                                    info_hex=INFO4
+                                    times10=0 
+                                    limit=0
+                                   
+                                    
+                                    while times10!=1:
+                                        
+
+                                        
+                                        
+                                        
+                                    
+                                    
+                                        INFO3=info_hex
+                                 
+
+                                       
+                                        
+                                        long=len(INFO3)
+                                        #print(long)
+                                        
+                                        
+                                        #print(long)
+                                       
+                                       
+                                        block=0
+                                        
+                                        blocks=21
+                                        #print(blocks)
+                                        
+                                       
+                                        Circle=""
+                                        INFO3=INFO2
+                                        while block<long:
+                                        	
+
+	                                        Zigzag_rle2=INFO3[block:block+1]
+	                                        
+	                                        if Zigzag_rle2[:1]=="1":
+	                                         		                  		Zigzag_rle3=INFO3[block:block+22]
+	                                         		                  		Circle+=Zigzag_rle3[1:]
+	                                         		                  		block+=22
+	                                        elif Zigzag_rle2[:1]=="0":
+	                                        	Zigzag_rle3=INFO3[block:block+19]
+	                                        	Circle+="00"+Zigzag_rle3
+	                                        	block+=19
+	                                        	#print(Zigzag_rle3)		#print(Circle)
+	                                        	
+	                                     
+		                                    #print(Zigzag_rle)		                                       	                                        
+	                                        #print(Circle9)
+	                                        #print(Stop3)
+                                                       
+                                                       
+                                                
+                                                    
+                                                
+                                                
+                                            
+                                            #print(block)                                        
+                                            
+                                        
+         
+                                                    
+                                                    
+                                                    
+                                         
+                   
+                                        
+
+                                            
+                                        
+                                        times10+=1
+                                       
+                                            
+                                        info_hex=Circle 
+                                        long_after_compressionCirclesion=len(info_hex)
+                                        if long==long_after_compressionCirclesion:
+                                            limit=1
+                                            limit1=1
+
+                                         
+                              
+                                        info_hex=Circle
+                                            
+                                        
+                                        
+                                        
+                                                                       
+                                    
+                                    encypthion=info_hex
+                                    
+                                   
+                                    
+                                    #print(Circle3)
+                                    #print(Circlef)
+                                    #print(limit)
+                                    
+                                    INFO14=""
+                                    
+                                    
+       
+                                    
+                                                                        
+                                    INFO12=encypthion
+
+                                    long21=len(INFO12)
+                                    #print(long21)
+
+                                    
+                                    
+                                    limit1=1
+                                
+                               
+                                    
+                                
+                                
+             
+                             
+                                Stop_save=""
+                                             #print(Times_do_impossible_stop)
+
+                                
+                            
+                                      
+                                #print(len(INFO11))
+                                #print(len(INFO2))
+
+                                INFO11=INFO12
+                                INFO2=INFO11
+                                
+                                print(len(INFO2))
+                                
+                               
+                                  
+                               
+             
+                                                                                
+
+                                
+                              
+                                
+                                
+                                
+                             
+                                
+                               
                                 
                                     
 
-                                while  Times_count!=Time_count2:
-                                                                       INFO_Save=""
-                                                                       
-                                                                       #print(Time_count2)
-                                                                       Times_do_impossible_stop=int(INFO3[:40],2)
-                                                                       #print(INFO3)
-                                                                       INFO3=INFO3[40:]
-                                                                       block=0
-                                                                       long=len(INFO3)
-                                                                       #print(long)
-                                                                       stop2=0
-                                                                       
-                                                                       
-                                                                       while block<long:
-                                                                       	
-
-                                                                       	Calculus3=INFO3[block:block+24]
-                                                                       	Calculus2=INFO3[block:block+23]
-                                                                       	if Times_do_impossible_stop!=stop2:
-                                                                       		stop2+=1
-                                                                       		C5=int(Calculus2,2)
-                                                                       		Calculus=format(((2**24)-1)-C5,'024b')
-                                                                       		block+=23
-                                                                       		
-                                                                       		INFO_Save+=Calculus
-                                                                       	elif Times_do_impossible_stop==stop2:
-                                                                       		INFO_Save+=Calculus3
-                                                                       		#print(INFO_Save)
-                                                                       		block+=24
-
-                                                                       INFO3=INFO_Save
-                                                                       Time_count2+=1
-                                                                        
-                                                                        
-                                                            
-                                                            
-                                                                        
-                                                                                                                                                      
-                                Times55=1
+                                
+                                   
+                                Times_compressionCirclesionz=Times_compressionCirclesionz+1
+                    
+                            
+                                Times_of_compressionression_2 =Times_of_compressionression_2 +1
+                                
+                            
+                                
+                                Times55+=1
+                                #print(Times55)
                                 if Times55==1:
-                                	n = int(INFO_Save, 2)
-                                	binary_to_data=len(INFO_Save)
+                                	n = int(INFO11, 2)
+                                	binary_to_data=len(INFO11)
                                 	binary_to_data=(binary_to_data/8)*2
                                 	binary_to_data=str(binary_to_data)
                                 	binary_to_data="%0"+binary_to_data+"x"
