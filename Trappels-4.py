@@ -254,9 +254,9 @@ class encypthion_class:
                                             S1=""
                                             if F==0:
                                             	F=1
-                                            	Zigzag_rle=INFO3[block:block+24]
+                                            	Zigzag_rle=INFO3[block:block+32]
                                             else:
-                                            	Zigzag_rle=INFO3[block+24:block+48]
+                                            	Zigzag_rle=INFO3[block+32:block+64]
                                             	F=0
                                             times_1=-4
                                             times_2=-4
@@ -276,24 +276,24 @@ class encypthion_class:
                                             				D=1
                                             				if F1==0:
                                             					F1=1
-                                            					S1=S+Zigzag_rle[:times_2]+Zigzag_rle[block+24:block+48]
+                                            					S1=S+Zigzag_rle[:times_2]+Zigzag_rle[block+32:block+64]
                                             				else:
                                             				 	F1=0
-                                            				 	S1=S+Zigzag_rle[:times_2]+Zigzag_rle[block:block+24]
+                                            				 	S1=S+Zigzag_rle[:times_2]+Zigzag_rle[block:block+32]
 
                                             		
 	                                        			
 	                                        		
 	                                      
                                             if D==0 or stop==1:
-                                            	Circle+=INFO3[block:block+48]
+                                            	Circle+=INFO3[block:block+64]
                                             	stop=1
                                             elif D==1 and stop==0:
                                             	stop=0
                                             	Times4+=1
                                             	Circle+=S1
                                             D=0
-                                            block+=48                                     
+                                            block+=64                                    
 		                                        	#print(Zigzag_rle)		                                       	                                        
 	                                        #print(Circle9)
 	                                        #print(Stop3)
