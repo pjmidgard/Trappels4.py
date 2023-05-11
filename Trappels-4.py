@@ -34,6 +34,7 @@ class encypthion_class:
                     
                         
                     namea=""
+                   
 
                     namem=""
                     namema="?"
@@ -43,7 +44,7 @@ class encypthion_class:
                     Combination=-1
                     Combination1=-1      
                     Times55=0                                
-                    
+                    Times56=0  
                     Times_of_compressionression_2 =0
                     
                     nameas=name
@@ -384,7 +385,7 @@ class encypthion_class:
 
                                 INFO11=INFO12
                                 
-                                Save_T=format(Times4,'032b')
+                             
                                 INFO11=INFO11
                                 INFO2=INFO11
                                 
@@ -417,10 +418,15 @@ class encypthion_class:
                             
                                 
                                 Times55+=1
+                                if len(INFO11)<=1700 or Times55==(2**24)-1:
+                                	Times56=1
                                 #print(Times55)
-                                if Times55==2000:
+                                if Times56==1:
+                       
 		                               
-		                                INFO11="1"+INFO11
+		                                
+		                                Save_T=format(Times55,'024b')
+		                                INFO11="1"+Save_T+INFO11
 		                                
 		                                
 		                                lenf=len(INFO11)
