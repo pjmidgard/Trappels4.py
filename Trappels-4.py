@@ -280,7 +280,7 @@ class encypthion_class:
 	                                            			
 	                                            				
 	                                            				S=format(times_3,'03b')
-	                                            				S2=format(times_2,'03b')
+	                                            				S2=format(times_2//4,'03b')
 	                                            				S3=format(F2//6,'03b')
 	                                            				#print(S1)
 	                                            				S4=S1+Zigzag_rle
