@@ -273,6 +273,7 @@ class encypthion_class:
                                             S12=""
                                             sw=""
                                             S15=""
+                                            S16=0
                                             while times_31!=92:
                                             	times_31+=4
                                             	times_1=-4
@@ -293,6 +294,7 @@ class encypthion_class:
 	                                            		
 	                                            			if times_3<8 and times_3>-1 and times_5<8 and times_5>-1 and times_2//12==times_3 and times_1<times_2 and times_2<times_31:
 	                                            				Zigzag_rle=Zigzag_rle[:times_2]+Zigzag_rle[times_2+4:times_31]+Zigzag_rle[times_31:]
+	                                            				S16=1
 	                                            				S11=format(times_3, '03b')
 	                                            				S12=format(times_5, '03b')
 	                                            				
@@ -300,7 +302,8 @@ class encypthion_class:
 	                                            				#print(S11)
 	                                            				S4=S11+S12+Zigzag_rle
 	                                            				
-	                                            				if len(S4)==94:
+	                                            				if len(S4)==94 and S16==1:
+	                                            					S16=0
 	                                            					S15=S4 
 	                                            					D=1
 	                                            				
@@ -312,18 +315,22 @@ class encypthion_class:
 	                                      
 
                                         
-                                            if len(S15)==94 and D==1:
+                                            if len(S15)==94:
                                             	Circle+="0"+S15
-                                            	#print(S15)
+                                            	#print(len(S15))
                                             
                                             	block+=96
+                                            	stop=0
                                             	
                                  
                                             
                                             elif D==0:
-                                            	S18="1"+INFO3[block:block+96] 
+                                            
+                                            	Save="1"
+                                            	S18=Save+INFO3[block:block+96] 
+                                           
                                             	Circle+=S18
-                                            	#print(S18)
+                                            	#print(len(S18))
                                             	block+=96
                                             
                                             
