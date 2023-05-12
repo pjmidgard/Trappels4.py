@@ -10,7 +10,7 @@ self="'"
 
 
 
-namez  = input("for compression c or e for extract: ")
+namez  =  input("for compression c or e for extract: ")
 
 #@Author Jurijus pacalovas
 
