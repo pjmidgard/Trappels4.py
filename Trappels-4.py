@@ -315,7 +315,7 @@ class encypthion_class:
 	                                      
 
                                         
-                                            if len(S15)==94:
+                                            if len(S15)==94 and D==1:
                                             	Circle+="0"+S15
                                             	#print(len(S15))
                                             
@@ -324,7 +324,7 @@ class encypthion_class:
                                             	
                                  
                                             
-                                            elif D==0:
+                                            else:
                                             
                                             	Save="1"
                                             	S18=Save+INFO3[block:block+96] 
