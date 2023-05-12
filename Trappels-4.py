@@ -274,7 +274,7 @@ class encypthion_class:
                                             sw=""
                                             S15=""
                                             while times_31!=92:
-                                            	times_31+=1
+                                            	times_31+=4
                                             	times_1=-4
                                             	times_2=-4
                                             	#print(times_3)
