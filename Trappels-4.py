@@ -249,64 +249,101 @@ class encypthion_class:
                                         F1=0
                                         Times4=0
                                         stop=0
+                                        C3=0
+                                        S4=""
+                                        S9=0
+                                        S10=""
+                                        S8=""
+                                        S18=""
                                         while block<long:
                                         	
                                             D=0
                                             S1=""
-                                            Zigzag_rle=INFO3[block:block+32]
+                                            Zigzag_rle=INFO3[block:block+96]
                                         
                                             	
                                           
                                             times_1=-4
                                             times_2=-4
                                             times_3=0
-                                            while times_1!=28:
-                                            	times_1+=4
+                                            times_5=0
+                                            C4=0
+                                            S4=""
+                                            times_31=-4
+                                            S12=""
+                                            sw=""
+                                            S15=""
+                                            while times_31!=92:
+                                            	times_31+=1
+                                            	times_1=-4
                                             	times_2=-4
-                                            	while times_2!=28:
-                                            		times_2+=4
-                                            		if Zigzag_rle[times_1:times_1+4]==Zigzag_rle[times_2:times_2+4] and times_1!=times_2:
-                                            			times_3=(times_2//4)-(times_1//4)
-                                            			if times_1<times_2 and times_3<8 and times_3>-1:
-                                            				
-                                            				S=format(times_3,'03b')
-                                            				S2=format(times_2//4,'03b')
-                                            				Zigzag_rle=Zigzag_rle[:times_1]+Zigzag_rle[times_1+4:times_2]+Zigzag_rle[times_2+4:]
-                                            				S1+=S+S2
-                                            				F2=len(S1)
-                                            		
-                                            				#print(len(S1))
-                                            				if len(S1)==12:
+                                            	#print(times_3)
+                                            	while times_1!=92:
+	                                            	times_1+=4
+	                                            	times_2=-4
+	                                            
+	                                        
+	                                            	while times_2!=92:
+	                                            		times_2+=4
+	                                            		if Zigzag_rle[times_1:times_1+4]==Zigzag_rle[times_2:times_2+4] and Zigzag_rle[times_31:times_31+4]==Zigzag_rle[times_2:times_2+4] and times_1!=times_2 and times_31!=times_2 and times_31!=times_1:
 	                                            			
+	                                            			times_3=(times_2//12)-(times_1//12)
+	                                            			times_5=(times_31//12)-(times_2//12)
+	                                            			#print()
+	                                            		
+	                                            			if times_3<8 and times_3>-1 and times_5<8 and times_5>-1 and times_2//12==times_3 and times_1<times_2 and times_2<times_31:
+	                                            				Zigzag_rle=Zigzag_rle[:times_2]+Zigzag_rle[times_2+4:times_31]+Zigzag_rle[times_31:]
+	                                            				S11=format(times_3, '03b')
+	                                            				S12=format(times_5, '03b')
 	                                            				
-	                                            				S=format(times_3,'03b')
-	                                            				S2=format(times_2//4,'03b')
-	                                            				S3=format(F2//6,'03b')
-	                                            				#print(S1)
-	                                            				S4=S1+Zigzag_rle
-	                                            				#print(len(S4))
+	                                            				#print(S12)
+	                                            				#print(S11)
+	                                            				S4=S11+S12+Zigzag_rle
 	                                            				
-	                                            				if len(S4)==28:
+	                                            				if len(S4)==94:
+	                                            					S15=S4 
 	                                            					D=1
+	                                            				
+
 
                                             		
 	                                        			
 	                                        		
 	                                      
 
+                                        
+                                            if len(S15)==94 and D==1:
+                                            	Circle+="0"+S15
+                                            	#print(S15)
+                                            
+                                            	block+=96
                                             	
-                                            if len(S4)==28 and D==1:
-                                            	stop=0
-                                            	Times4+=1
-                                            	Circle+="0"+S4
-                                            	#print(len(S4))
-                                            else:
-                                            	Circle+="1"+INFO3[block:block+32]                                            	
-                                            D=0
-                                            block+=32
-                                                                              	                                        
-	                                        #print(Circle9)
-	                                        #print(Stop3)
+                                 
+                                            
+                                            elif D==0:
+                                            	S18="1"+INFO3[block:block+96] 
+                                            	Circle+=S18
+                                            	#print(S18)
+                                            	block+=96
+                                            
+                                            
+                  
+                                   	
+                                            		
+                                            	
+                                            
+                                            #print(D)
+                                            
+                                            
+                                            
+                                          
+                                            
+                                            S4=""
+                                            
+                                            
+                                            
+                                            S12=""
+                                          
                                                        
                                                        
                                                 
@@ -384,12 +421,10 @@ class encypthion_class:
                                 #print(len(INFO2))
 
                                 INFO11=INFO12
-                                
-                             
-                                INFO11=INFO11
                                 INFO2=INFO11
+                            
                                 
-                                #print(len(INFO2))
+                                print(len(INFO2))
                                 
                                
                                   
@@ -418,15 +453,15 @@ class encypthion_class:
                             
                                 
                                 Times55+=1
-                                if len(INFO11)<=1700 or Times55==(2**48)-1:
-                                	Times56=1
-                                #print(Times55)
-                                if Times56==1:
+                  
+                               
+                                print(Times55)
+                                if Times55==1:
                        
 		                               
 		                                
-		                                Save_T=format(Times55,'048b')
-		                                INFO11="1"+Save_T+INFO11
+		                              
+		                                INFO11="1"+INFO11
 		                                
 		                                
 		                                lenf=len(INFO11)
