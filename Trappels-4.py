@@ -431,7 +431,7 @@ class encypthion_class:
                                 INFO2=INFO11
                             
                                 
-                                print(len(INFO2))
+                                #print(len(INFO2))
                                 
                                
                                   
@@ -462,7 +462,7 @@ class encypthion_class:
                                 Times55+=1
                   
                                
-                                print(Times55)
+                                #print(Times55)
                                 if Times55==1:
                        
 		                               
