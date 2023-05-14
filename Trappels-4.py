@@ -495,7 +495,7 @@ class encypthion_class:
                                       
                                             
 
-                                        info_hex=Circle
+                                        info_hex="1"+Circle
                                         encypthion=info_hex
                                         INFO14=""
                                         INFO12=encypthion
