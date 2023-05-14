@@ -406,7 +406,7 @@ class encypthion_class:
 
                                             S1=""
 
-                                            Zigzag_rle=INFO3[block:block+32]
+                                            Zigzag_rle=INFO3[block:block+4]
                                             #print(block)
 
                                         
@@ -439,26 +439,26 @@ class encypthion_class:
                                             S16=0
                                             C5=0
 
-                                            while times_1!=28:
+                                            while times_1!=4:
                                                 
-                                                times_1+=4
+                                                times_1+=2
                                                 #print(times_1)
                                               
                                                     #print(times_1)
-                                                if len(Zigzag_rle[times_1:times_1+4])!=0:
-                                            	    times_3=int(Zigzag_rle[times_1:times_1+4],2)
+                                                if len(Zigzag_rle[times_1:times_1+2])!=0:
+                                            	    times_3=int(Zigzag_rle[times_1:times_1+2],2)
                                             	    C5=1
-                                                if times_3-(times_1//4)==0 and C5==1 and len(Zigzag_rle)>=4:
-                                                    if len(Zigzag_rle[times_1:times_1+4])==4:
-                                                        S11="000"
+                                                if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=2:
+                                                    if len(Zigzag_rle[times_1:times_1+2])==2:
+                                                        S11="0"
                                                         Zigzag_rle=Zigzag_rle[:times_1]+S11+Zigzag_rle[times_1+4:]
                                                     D=1
                                                     C8=Zigzag_rle
 	                                            				                                            			    
-                                                elif Zigzag_rle[times_1+1:times_1+4]=="000" and  len(Zigzag_rle)>=4:
-	                                            			    times_3=int(Zigzag_rle[times_1:times_1+4],2)
-	                                            			    if len(Zigzag_rle[times_1:times_1+4])==4:
-	                                            			        S11=format(times_1//4,'03b')
+                                                elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=4:
+	                                            			    times_3=int(Zigzag_rle[times_1:times_1+2],2)
+	                                            			    if len(Zigzag_rle[times_1:times_1+2])==2:
+	                                            			        S11=format(times_1//4,'01b')
 	                                            			        S12=Zigzag_rle[times_1:times_1+1]
 	                                            			        Zigzag_rle=Zigzag_rle[:times_1]+S12+S11
 	                                            			        Zigzag_rle[times_1+4:]
@@ -472,7 +472,7 @@ class encypthion_class:
 	                                            			    #print(Zigzag_rle)
 	                                            			    
                                                 else:
-                                            	    S18=INFO3[block:block+32]
+                                            	    S18=INFO3[block:block+4]
                                             	    C8=S18
                                             	    #print(S18)
                                             	                               
@@ -528,8 +528,7 @@ class encypthion_class:
                                             binary_to_data=str(binary_to_data)
                                             binary_to_data="%0"+binary_to_data+"x"
                                             jl=binascii.unhexlify(binary_to_data % n)
-                                            import paq
-                                            jl= paq.compress(jl)
+                                      
                         
                                             Times_2=10
                                             f2.write(jl)
