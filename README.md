@@ -1,7 +1,7 @@
 # Trappels4.py
 Trappels4.py
 
-Algorithm partical
+Algorithm partical:
 We find where is partical?
 Then we save zeroes.
 if zeroes save where it is?
