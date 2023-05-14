@@ -513,7 +513,7 @@ class encypthion_class:
                                         INFO14=""
                                         INFO12=encypthion
                                         long21=len(INFO12)
-                                        CS=format(Times4,'032b')
+                                        CS=format(Times4,'040b')
                                         INFO11=CS+INFO12
                                         #print(len(INFO2))
                                         if Times55==(2**48)-1 or len(INFO2)==len(INFO11):
