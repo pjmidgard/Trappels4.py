@@ -455,6 +455,9 @@ class encypthion_class:
                                                         Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
                                                     D=1
                                                     C8=Zigzag_rle2
+                                                    if Zigzag_rle2[2:5]!="001":
+                                                        C8=Zigzag_rle
+	                           
                                                     #print(Zigzag_rle2)
 	                                            				                                            			    
                                                 elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=6:
@@ -467,6 +470,8 @@ class encypthion_class:
 	                                            			        Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
 	                                            			    
 	                                            			    C8=Zigzag_rle2
+	                                            			    if Zigzag_rle2[2:5]!="001":
+	                                            			        C8=Zigzag_rle
 	                                            			    
 	                                            			    
 	                                            			    
