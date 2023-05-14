@@ -14,3 +14,5 @@ xx(!=001)x
 x0001x
 
 x1001x
+
+stop use
