@@ -528,6 +528,8 @@ class encypthion_class:
                                             binary_to_data=str(binary_to_data)
                                             binary_to_data="%0"+binary_to_data+"x"
                                             jl=binascii.unhexlify(binary_to_data % n)
+                                            import paq
+                                            jl= paq.compress(jl)
                         
                                             Times_2=10
                                             f2.write(jl)
