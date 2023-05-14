@@ -462,6 +462,7 @@ class encypthion_class:
                                                         C8=Zigzag_rle
                                                         #print(Zigzag_rle)
                                                         if Zigzag_rle[1:2]=="0":
+                                                            Times4-=1
                                                             stop=1	                                            				                                            			    
                                                 elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=6 and stop==0:
 	                                            			    times_3=int(Zigzag_rle[times_1:times_1+2],2)
