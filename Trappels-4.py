@@ -406,7 +406,7 @@ class encypthion_class:
 
                                             S1=""
 
-                                            Zigzag_rle=INFO3[block:block+4]
+                                            Zigzag_rle=INFO3[block:block+2]
                                             #print(block)
 
                                         
@@ -439,7 +439,7 @@ class encypthion_class:
                                             S16=0
                                             C5=0
 
-                                            while times_1!=4:
+                                            while times_1!=2:
                                                 
                                                 times_1+=2
                                                 #print(times_1)
@@ -472,7 +472,7 @@ class encypthion_class:
 	                                            			    #print(Zigzag_rle)
 	                                            			    
                                                 else:
-                                            	    S18=INFO3[block:block+4]
+                                            	    S18=INFO3[block:block+2]
                                             	    C8=S18
                                             	    #print(S18)
                                             	                               
