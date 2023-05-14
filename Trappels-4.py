@@ -448,21 +448,20 @@ class encypthion_class:
                                                 if len(Zigzag_rle[times_1:times_1+4])!=0:
                                             	    times_3=int(Zigzag_rle[times_1:times_1+4],2)
                                             	    C5=1
-                                                if times_3-(times_1//4)==0 and C5==1:
-	                                            			    S11="000"
-	                                            			    Zigzag_rle=Zigzag_rle[:times_1]+S11+Zigzag_rle[times_1+4:]
-	                                            			    D=1
-	                                            			    
-	                                            			    C8=Zigzag_rle
+                                                if times_3-(times_1//4)==0 and C5==1 and len(Zigzag_rle)>=4:
+                                                    if len(Zigzag_rle[times_1:times_1+4])==4:
+                                                        S11="000"
+                                                        Zigzag_rle=Zigzag_rle[:times_1]+S11+Zigzag_rle[times_1+4:]
+                                                    D=1
+                                                    C8=Zigzag_rle
 	                                            				                                            			    
-                                                elif Zigzag_rle[times_1+1:times_1+4]=="000":
+                                                elif Zigzag_rle[times_1+1:times_1+4]=="000" and  len(Zigzag_rle)>=4:
 	                                            			    times_3=int(Zigzag_rle[times_1:times_1+4],2)
-	                                            			    S11=format(times_1//4,'03b')
-	                                            			    S12=Zigzag_rle[times_1:times_1+1]
-	                                            			    
-	                                            			   
-	                                            			    
-	                                            			    Zigzag_rle=Zigzag_rle[:times_1]+S12+S11+Zigzag_rle[times_1+4:]
+	                                            			    if len(Zigzag_rle[times_1:times_1+4])==4:
+	                                            			        S11=format(times_1//4,'03b')
+	                                            			        S12=Zigzag_rle[times_1:times_1+1]
+	                                            			        Zigzag_rle=Zigzag_rle[:times_1]+S12+S11
+	                                            			        Zigzag_rle[times_1+4:]
 	                                            			    
 	                                            			    C8=Zigzag_rle
 	                                            			    #print(len(Zigzag_rle1))
