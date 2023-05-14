@@ -448,7 +448,7 @@ class encypthion_class:
                                                 if len(Zigzag_rle[times_1:times_1+2])!=0:
                                             	    times_3=int(Zigzag_rle[times_1:times_1+2],2)
                                             	    C5=1
-                                                if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=2:
+                                                if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=4:
                                                     if len(Zigzag_rle[times_1:times_1+2])==2:
                                                         S11="0"
                                                         Zigzag_rle=Zigzag_rle[:times_1]+S11+Zigzag_rle[times_1+4:]
