@@ -397,6 +397,7 @@ class encypthion_class:
                                         S8=""
 
                                         S18=""
+                                        
 
                                         while block<long:
 
@@ -448,19 +449,21 @@ class encypthion_class:
                                                 if len(Zigzag_rle[times_1:times_1+2])!=0:
                                             	    times_3=int(Zigzag_rle[times_1:times_1+3],2)
                                             	    C5=1
-                                                if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=6:
+                                                if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=6 and stop==0:
                                                     if len(Zigzag_rle[times_1:times_1+3])==3:
                                                         S11="0"
                                                         Zigzag_rle1=Zigzag_rle[:times_1+1]+S11+Zigzag_rle[times_1+3:]
                                                         Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
                                                     D=1
                                                     C8=Zigzag_rle2
+                                                    Times4+=1
+                                                    
                                                     if Zigzag_rle2[2:5]!="001":
                                                         C8=Zigzag_rle
-	                           
-                                                    #print(Zigzag_rle2)
-	                                            				                                            			    
-                                                elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=6:
+                                                        #print(Zigzag_rle)
+                                                        if Zigzag_rle[1:2]=="0":
+                                                            stop=1	                                            				                                            			    
+                                                elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=6 and stop==0:
 	                                            			    times_3=int(Zigzag_rle[times_1:times_1+2],2)
 	                                            			    if len(Zigzag_rle[times_1:times_1+2])==2:
 	                                            			        S11=format(times_1//2,'01b')
@@ -470,6 +473,7 @@ class encypthion_class:
 	                                            			        Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
 	                                            			    
 	                                            			    C8=Zigzag_rle2
+	                                            			    Times4+=1
 	                                            			    if Zigzag_rle2[2:5]!="001":
 	                                            			        C8=Zigzag_rle
 	                                            			    
@@ -508,7 +512,8 @@ class encypthion_class:
                                         INFO14=""
                                         INFO12=encypthion
                                         long21=len(INFO12)
-                                        INFO11=INFO12
+                                        CS=format(Times4,'032b')
+                                        INFO11=CS+INFO12
                                         #print(len(INFO2))
                                         if Times55==(2**48)-1 or len(INFO2)==len(INFO11):
                                             
