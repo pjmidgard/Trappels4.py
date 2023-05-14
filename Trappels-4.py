@@ -451,9 +451,11 @@ class encypthion_class:
                                                 if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=6:
                                                     if len(Zigzag_rle[times_1:times_1+3])==3:
                                                         S11="0"
-                                                        Zigzag_rle=Zigzag_rle[:times_1+1]+S11+Zigzag_rle[times_1+2:]
+                                                        Zigzag_rle1=Zigzag_rle[:times_1+1]+S11+Zigzag_rle[times_1+3:]
+                                                        Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
                                                     D=1
-                                                    C8=Zigzag_rle
+                                                    C8=Zigzag_rle2
+                                                    #print(Zigzag_rle2)
 	                                            				                                            			    
                                                 elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=6:
 	                                            			    times_3=int(Zigzag_rle[times_1:times_1+2],2)
@@ -461,16 +463,16 @@ class encypthion_class:
 	                                            			        S11=format(times_1//2,'01b')
 	                                            			        #print(S11)
 	                                            			        S12=Zigzag_rle[times_1:times_1+1]
-	                                            			        Zigzag_rle=Zigzag_rle[:times_1]+S12+S11
-	                                            			        Zigzag_rle[times_1+2:]
+	                                            			        Zigzag_rle1=Zigzag_rle[:times_1+1]+S11+Zigzag_rle[times_1+2:]
+	                                            			        Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
 	                                            			    
-	                                            			    C8=Zigzag_rle
-	                                            			    #print(len(Zigzag_rle1))
+	                                            			    C8=Zigzag_rle2
+	                                            			    
 	                                            			    
 	                                            			    
 	                                            			 
 	                                            			    D=2
-	                                            			    #print(Zigzag_rle)
+	                                            			    #print(Zigzag_rle2)
 	                                            			    
                                                 else:
                                             	    S18=INFO3[block:block+6]
