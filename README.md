@@ -6,13 +6,10 @@ We find where is partical?
 Then we save zeroes.
 if zeroes save where it is?
 else save what it is?
-add "1".
-reapeat it many times.
+On the end use paq compression.
 
-xx(!=001)x
 
-x0001x
 
-x1001x
 
-stop use
+
+
