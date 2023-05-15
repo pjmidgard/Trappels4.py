@@ -447,37 +447,30 @@ class encypthion_class:
                                               
                                                     #print(times_1)
                                                 if len(Zigzag_rle[times_1:times_1+2])!=0:
-                                            	    times_3=int(Zigzag_rle[times_1:times_1+3],2)
+                                            	    times_3=int(Zigzag_rle[times_1:times_1+2],2)
                                             	    C5=1
-                                                if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=6 and stop==0:
-                                                    if len(Zigzag_rle[times_1:times_1+3])==3:
-                                                        S11="0"
-                                                        Zigzag_rle1=Zigzag_rle[:times_1+1]+S11+Zigzag_rle[times_1+3:]
-                                                        Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
+                                                if times_3-(times_1//2)==0 and C5==1 and len(Zigzag_rle)>=6:
+                                                    if len(Zigzag_rle[times_1:times_1+2])==2:
+                                                        S11="00"
+                                                        Zigzag_rle1=Zigzag_rle[:times_1]+S11+Zigzag_rle[times_1+2:]
+                                                        
                                                     D=1
-                                                    C8=Zigzag_rle2
-                                                    Times4+=1
-                                                    
-                                                    if Zigzag_rle2[2:5]!="001":
-                                                        C8=Zigzag_rle
+                                                    C8=Zigzag_rle1
+                                                    #print(Zigzag_rle2)
+                                                
                                                         #print(Zigzag_rle)
-                                                        if Zigzag_rle[1:2]=="0":
-                                                            Times4-=1
-                                                            stop=1	                                            				                                            			    
-                                                elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=6 and stop==0:
+                                                            			    
+                                                elif Zigzag_rle[times_1+1:times_1+2]=="0" and  len(Zigzag_rle)>=6:
 	                                            			    times_3=int(Zigzag_rle[times_1:times_1+2],2)
 	                                            			    if len(Zigzag_rle[times_1:times_1+2])==2:
 	                                            			        S11=format(times_1//2,'01b')
 	                                            			        #print(S11)
 	                                            			        S12=Zigzag_rle[times_1:times_1+1]
 	                                            			        Zigzag_rle1=Zigzag_rle[:times_1+1]+S11+Zigzag_rle[times_1+2:]
-	                                            			        Zigzag_rle2=Zigzag_rle1[2:4]+Zigzag_rle1[0:2]+Zigzag_rle1[4:6]
-	                                            			    
-	                                            			    C8=Zigzag_rle2
-	                                            			    Times4+=1
-	                                            			    if Zigzag_rle2[2:5]!="001":
-	                                            			        C8=Zigzag_rle
-	                                            			    
+	                                            			                    			    
+	                                            			    C8=Zigzag_rle1
+	                                            			   
+          			    
 	                                            			    
 	                                            			    
 	                                            			 
@@ -501,47 +494,34 @@ class encypthion_class:
                                             D=0
                                             times10+=1
                                             Circle+=C8
-                                            block+=32
+                                            block+=6
                                             #print(block)
 
                                        
                                       
                                             
 
-                                        info_hex="1"+Circle
+                                        info_hex=Circle
                                         encypthion=info_hex
                                         INFO14=""
                                         INFO12=encypthion
                                         long21=len(INFO12)
-                                        CS=format(Times4,'040b')
-                                        INFO11=CS+INFO12
-                                        #print(len(INFO2))
-                                        if Times55==(2**48)-1 or len(INFO2)==len(INFO11):
-                                            
-                                            Times56=1                                        
-                                        INFO2=INFO11
                                        
+                                        INFO11=INFO12
+                                                                 
                                         Times55+=1
 
-                                        if Times56==1:
-                                            CS=format(Times55,'048b')
-                                            INFO11="1"+INFO11
-                                            lenf=len(INFO11)
-                                            add_bits118=""
-                                            count_bits=8-lenf%8
-                                            z=0
-                                            if count_bits!=8:
-                                                while z<count_bits:
-                                                    add_bits118="0"+add_bits118
-                                                    z=z+1
-                                            z=0
-                                            INFO11=CS+add_bits118+INFO11
+                                        if Times55==1:
+                      
+                                           
                                             n = int(INFO11, 2)
                                             binary_to_data=len(INFO11)
                                             binary_to_data=(binary_to_data/8)*2
                                             binary_to_data=str(binary_to_data)
                                             binary_to_data="%0"+binary_to_data+"x"
                                             jl=binascii.unhexlify(binary_to_data % n)
+                                            import paq
+                                            jl=paq.compress(jl)
                                       
                         
                                             Times_2=10
